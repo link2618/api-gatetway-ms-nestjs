@@ -1,0 +1,14 @@
+FROM node:21-alpine3.19
+
+RUN apk add --no-cache bash
+
+WORKDIR /usr/src/app
+
+COPY package*.json ./
+
+RUN npm install
+
+COPY . .
+# RUN rm -rf ./src
+
+EXPOSE 4000
